@@ -101,7 +101,7 @@ function getWindSpeed() {
 	};
 }; // End of getWindSpeed() function
 
-
+//hi
 /* STEP 6: Ternary operator
 This piece of syntax is a bit less typing, but it is harder to read */
 let breakMessage = document.querySelector('#breakTime');
