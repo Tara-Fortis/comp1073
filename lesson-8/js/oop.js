@@ -31,8 +31,8 @@ function Album(name, artist, year, numTracks) {
     this.year = year;
     this.numTracks = numTracks;
     this.describe = function () {
-        let description = `The album ${this.name} by ${this.artist} was released in ${this.year} with ${this.numTracks} tracks.`;
-        return description;
+        let describe = `The album ${this.name} by ${this.artist} was released in ${this.year} with ${this.numTracks} tracks.`;
+        return describe;
     }
 };
 
