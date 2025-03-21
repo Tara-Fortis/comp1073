@@ -1,30 +1,64 @@
 {
-  "companyName" : "I Scream Inc.",
-  "headOffice" : "South Pole, Antarctica",
-  "established" : 2001,
-  "active" : true,
-  "topFlavors" : [
+  "companyName": "I Scream Inc.",
+  "headOffice": "South Pole, Antarctica",
+  "established": 2001,
+  "active": true,
+  "topFlavors": [
     {
-      "name" : "Monstrous Mint",
-      "calories" : 400,
-      "type" : "ice cream",
-      "ingredients" : [
+      "name": "Monstrous Mint",
+      "calories": 400,
+      "type": "ice cream",
+      "ingredients": [
         "peppermint cream",
         "dark chocolate chips",
         "vanilla extract"
       ],
-      "image" : "chocolate-mint.svg"
+      "image": "chocolate-mint.svg"
     },
     {
-      "name" : "Perfect Peach Mango",
-      "calories" : 350,
-      "type" : "sorbet",
-      "ingredients" : [
+      "name": "Perfect Peach Mango",
+      "calories": 350,
+      "type": "sorbet",
+      "ingredients": [
         "peach purée",
         "mango chunks",
         "clover honey"
       ],
-      "image" : "peach-mango.svg"
+      "image": "peach-mango.svg"
+    },
+    {
+      "name": "Screaming Strawberry",
+      "calories": 400,
+      "type": "ice cream",
+      "ingredients": [
+        "strawberry cream",
+        "strawberries",
+        "strawberry jam"
+      ],
+      "image": "strawberry-sprinkle.svg"
+    },
+    {
+      "name": "Rainbow IcyCorn",
+      "calories": 450,
+      "type": "ice cream",
+      "ingredients": [
+        "rainbow sprinkles",
+        "bubble gum",
+        "pink cream",
+        "pop rocks"
+      ],
+      "image": "ice-cream-xtra1.svg"
+    },
+    {
+      "name": "Chocolate Mudslide",
+      "calories": 650,
+      "type": "ice cream",
+      "ingredients": [
+        "chocolate chips",
+        "vanilla cream",
+        "cocoa powder"
+      ],
+      "image": "ice-cream-xtra2.svg"
     }
   ]
 }
