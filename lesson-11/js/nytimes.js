@@ -1,7 +1,7 @@
 // The URL for the Article Search API at nytimes.com
 const baseURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
 // STEP 1: Get your own API key and paste it below…
-const key = '';
+const key = 'FVUg1RdrkUabG1klD5OGa9vezvx7qTZm';
 let url;
 // Grab references to all the DOM elements you'll need to access
 const searchTerm = document.querySelector('.search');
@@ -11,17 +11,28 @@ const searchForm = document.querySelector('form');
 const submitBtn = document.querySelector('.submit');
 const section = document.querySelector('section');
 // STEP 2: Add a submit event listener for the search form, referencing the fetchResults function as the callback
-
+searchForm.addEventListener("submit", fetchResults);
 
 // Functions
 function fetchResults(event) {
     // Use preventDefault() to stop the form submitting
     event.preventDefault();
     // STEP 3: Assemble the full URL, according to the API documentation at the New York Times
-    
-
+    url = `${baseURL}?api-key=${key}eq=${searchTerm.value}&fq=document_type:("article")`;
+    // Add start and end dates if needed
+    if (startDate.value !== "") {
+        url += `&begin_date=${startDate.value.replaceAll("-","")}`;
+    }
+    if (endDate.value !== "") {
+        url += `&end_date=${endDate.value.replaceAll("-","")}`;
+    }
+    console.log(url);
     // STEP 4: Use fetch() to pass the URL that we built as a request to the API service, then pass the JSON to the displayResults() function
-    
+    fetch(url).then(result => {
+        return result.json();
+    }).then(json => {
+        displayResults(json);
+    })
 
 };
 
@@ -34,7 +45,8 @@ function displayResults(json) {
             section.removeChild(section.firstChild);
     };
     // STEP 6: Create the variable articles to capture the articles from the JSON object
-    	
+    let articles = json.response.docs;
+    //console.log(articles);
 
     if (articles.length === 0) {
         const para = document.createElement('p');
@@ -51,18 +63,23 @@ function displayResults(json) {
             const current = articles[i];
             console.log(current);
             // STEP 7a: Look at the console output from the API…
-            
+            link.href = articles[i].web_url;
+            link.textContent = articles[i].headline.main;
             // STEP 7b: Grab the content from the JSON for the hyperlink and the article teaser (snippet)
-            
+            para1.textContent = articles[i].snippet;
 
             if(current.multimedia.length > 0) {
                 img.src = 'https://www.nytimes.com/' + current.multimedia[0].url;
                 img.alt = current.headline.main;
             };
             // STEP 8: Put each article together as an ARTICLE element and append it as a child of the SECTION element in the HTML
-            
-
-            
+            article.appendChild(heading);
+            heading.appendChild(link);
+            article.appendChild(img);
+            article.appendChild(para1);
+            console.log(arguments);            
+            // inject completed ARTICLE element into page
+            section.appendChild(article);
         };
     };
 };
